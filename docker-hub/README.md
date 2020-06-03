@@ -1,4 +1,12 @@
 # Docker HUB
+docker list images on local machine
+```
+docker images
+```
+Get a image from docker hub (ex. nginx)
+```
+docker image pull nginx:latest
+```
 Docker Search with filters
 ```
 docker search --filter "is-official=true" registry
