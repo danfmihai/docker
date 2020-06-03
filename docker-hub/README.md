@@ -33,3 +33,13 @@ docker image inspect ubuntu:12.04
 docker image inspect --format " {{.RepoTags}} : {{.RepoDigests}} " ubuntu:12.04
 docker image inspect --format " {{json .Config}}" ubuntu:12.04 > inspect_report.txt
 ```
+Get history of the image
+```
+docker image history ubuntu
+```
+Remove image (by name or by ID)
+```
+docker image rm nginx:alpine
+docker image rmi 7d0cdcc60a96
+```
+
