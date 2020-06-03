@@ -42,4 +42,44 @@ Remove image (by name or by ID)
 docker image rm nginx:alpine
 docker image rmi 7d0cdcc60a96
 ```
+docker create
+```
+docker container create -it --name test-busybox-A busybox:latest
+```
+docker run (--rm to remove the container after finishing running)
+```
+docker container run -itd --rm --name test-busybox-B busybox:latest
+```
+Rename, Start, Restart, Stop container 
+```
+docker container rename test-busybox-A my-busybox
+docker container start cont_apache
+docker container restart cont_apache
+docker container stop cont_apache
+```
+docker attach ( attach the std io to terminal) after execution of exit command the container will stop
+```
+docker attach my-busybox
+```
+Exec stdout without stopping the container
+```
+docker exec -it my-busybox ls
+```
+Port mapping
+```
+docker container run -itd --name cont_nginx -p 8181:80/tcp img_apache
+# let docker expose ports with -P
+docker container run -itd --name cont_apache_A -P img_apache
+```
+Erasing containers
+```
+docker container rm my-busybox
+```
+Remove all stopped containers
+```
+docker container prune
+```
+
+
+
 
