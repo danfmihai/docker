@@ -27,3 +27,9 @@ Push image to docker hub
 ```
 docker push accountname/repo-name:yournewtagname
 ```
+Get information about an image (json format)
+```
+docker image inspect ubuntu:12.04
+docker image inspect --format " {{.RepoTags}} : {{.RepoDigests}} " ubuntu:12.04
+docker image inspect --format " {{json .Config}}" ubuntu:12.04 > inspect_report.txt
+```
