@@ -2,7 +2,7 @@ FROM ubuntu:12.04
 
 LABEL Creator="Mikey mike"
 
-RUN apt-get update && apt-get upgrade \
+RUN apt-get update && apt-get install -y apache2 \
 && apt-get clean \
 && rm -rf /var/lib/apt/lists/*
 
