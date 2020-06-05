@@ -79,6 +79,44 @@ Remove all stopped containers
 ```
 docker container prune
 ```
+### DOCKER NETWORK
+
+```
+docker network create --driver bridge my-bridge
+docker network create --driver bridge --subnet=192.168.0.0/16 --ip-range=192.168.5.0/24 my-bridge-1
+docker network ls
+docker network ls --filter driver=bridge
+
+docker network connect my-bridge-1 ubuntu
+docker inspect ubuntu
+
+docker container run -itd --network host --name cont_nginx nginx:latest
+docker container port cont_nginx
+```
+Inspect Network
+````
+docker inspect bridge my-bridge-1
+docker network inspect --format "{{.Scope}}" bridge
+docker network inspect --format "{{.ID}}: {{.Name}}" bridge
+```
+Disconnect Bridge
+```
+docker network disconnect my-bridge-1 cyberpower 
+```
+### VOLUMES
+Create volumes
+```
+docker volume create vol-busybox
+docker run -d --volume vol-ubuntu:/tmp ubuntu:18.04
+```
+List volumes
+```
+docker volume ls --filter "dangling=true"
+```
+Remove volume
+```
+docker volume rm vol-ubuntu
+```
 
 
 
